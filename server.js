@@ -180,6 +180,6 @@ app.use("/api/pads", padRoutes);
 // const serverless = require("serverless-http");
 // module.exports = serverless(app);
 const port = process.env.PORT || 4000;
-server.listen(port, () => {
+server.listen(port, "0.0.0.0", () => {
   console.log(`✅ Server running on port ${port}`);
 });
