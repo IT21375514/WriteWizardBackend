@@ -177,4 +177,5 @@ app.use("/api/pads", padRoutes);
 // server.listen(4000, () => {
 //   console.log("✅ Server running on port 4000");
 // });
-module.exports = app;
+const serverless = require("serverless-http");
+module.exports = serverless(app);
