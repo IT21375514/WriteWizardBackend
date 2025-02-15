@@ -174,6 +174,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/pads", padRoutes);
 
 // Start the server
-server.listen(4000, () => {
-  console.log("✅ Server running on port 4000");
-});
+// server.listen(4000, () => {
+//   console.log("✅ Server running on port 4000");
+// });
+module.exports = app;
