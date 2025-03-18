@@ -10,12 +10,13 @@ const ieeeRoutes = require("./routes/ieeeRoutes");
 const usersRoutes = require("./routes/userRoutes");
 const Pad = require("./models/Pad");
 const path = require("path");
+const mindmapRoutes = require('./routes/mindmapRoutes');
 require("dotenv").config();
 
 const app = express();
 connectDB();
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
 
 // Serve static files (uploaded images)
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
@@ -183,6 +184,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/pads", padRoutes);
 app.use("/api/convert", ieeeRoutes);
 app.use("/api/users", usersRoutes);
+app.use('/api/mindmaps', mindmapRoutes);
 
 // Use in Local
 // server.listen(4000, () => {
@@ -191,7 +193,7 @@ app.use("/api/users", usersRoutes);
 
 
 // Use when hosted
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 4000;
 server.listen(port, "0.0.0.0", () => {
   console.log(`✅ Server running on port ${port}`);
 });
